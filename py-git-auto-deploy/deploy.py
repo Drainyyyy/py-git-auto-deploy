@@ -16,3 +16,21 @@
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 #  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
+
+__all__ = ["Deployer"]
+
+
+class Deployer:
+    def __init__(self, port: int, secret: str):
+        """TODO docs
+
+        :param secret:
+        """
+
+        self.port = port
+        self.secret = secret
+
+    def start(self):
+        print("Starting up flask server.")
+        print("The IP address you need to enter in the GitHub webhook is: ")  # TODO flask server; Show IP-Address
+        pass

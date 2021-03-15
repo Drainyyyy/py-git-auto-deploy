@@ -16,3 +16,30 @@
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 #  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
+
+import hashlib
+
+__all__ = ["Encryption"]
+
+
+class Encryption:
+    def __init__(self, real_secret: str, request_secret: str):
+        """TODO docs
+
+        :param real_secret:
+        :param request_secret:
+        """
+
+        self._real_secret = real_secret
+        self._req_secret = hashlib.sha256(request_secret)
+
+    def verify_secret(self):
+        """
+
+        :return:
+        """
+
+        real_encoded = self._real_secret.encode('UTF-8')
+        real_sha256 = hashlib.sha256(real_encoded)
+        validity = real_sha256.digest() is self._req_secret
+        return validity
