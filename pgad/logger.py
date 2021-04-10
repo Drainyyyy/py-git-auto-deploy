@@ -31,8 +31,11 @@ class Logging:
         See Logging().logger() for more information.
 
         :param config: Config file/dict after https://docs.python.org/3/library/logging.config.html#logging.config (default: None)
+        :type config: str, dict
         :param level: Logging level after https://docs.python.org/3/library/logging.html#logging-levels (default: 60 -> Nothing is logged)
+        :type level: int
         :param filename: Filename of log file (default: None -> No log file)
+        :type filename: str
         """
 
         self._logger = logging.getLogger("py-git-auto-deploy")
